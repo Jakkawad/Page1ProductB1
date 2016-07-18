@@ -58,6 +58,10 @@ class PageDetailViewController: UIViewController, UITableViewDataSource, UITable
             return 1
         } else if section == 3 {
             return 1
+        } else if section == 4 {
+            return 1
+        } else if section == 5 {
+            return 3
         } else {
             return 1
         }
@@ -86,9 +90,19 @@ class PageDetailViewController: UIViewController, UITableViewDataSource, UITable
             
             return cell4
         } else if indexPath.section == 5 {
-            let cell5 = tableView.dequeueReusableCellWithIdentifier("tableCell5") as! PageDetailCell5TableViewCell
-            cell5.imageViewProfile.setImageWithURL(NSURL(string: dummyImage("50x50"))!)
-            return cell5
+            if indexPath.row == 0 {
+                let cell5 = tableView.dequeueReusableCellWithIdentifier("tableCell5") as! PageDetailCell5TableViewCell
+                cell5.imageViewProfile.setImageWithURL(NSURL(string: dummyImage("50x50"))!)
+                return cell5
+            } else if indexPath.row == 1 {
+                let cell6 = tableView.dequeueReusableCellWithIdentifier("tableCell7")
+                
+                return cell6!
+            } else {
+                let cell7 = tableView.dequeueReusableCellWithIdentifier("tableCell8")
+                
+                return cell7!
+            }
         } else {
             let cell6 = tableView.dequeueReusableCellWithIdentifier("tableCell6") as! PageDetailCell6TableViewCell
             
@@ -108,7 +122,13 @@ class PageDetailViewController: UIViewController, UITableViewDataSource, UITable
         } else if indexPath.section == 4 {
             return 130
         } else if indexPath.section == 5 {
-            return 100
+            if indexPath.row == 0 {
+                return 100
+            } else if indexPath.row == 1 {
+                return 44
+            } else {
+                return 44
+            }
         } else {
             return 224
         }
