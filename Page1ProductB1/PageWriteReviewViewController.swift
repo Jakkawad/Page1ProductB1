@@ -1,31 +1,29 @@
 //
-//  PageOptionColorViewController.swift
+//  PageWriteReviewViewController.swift
 //  Page1ProductB1
 //
-//  Created by admin on 7/18/2559 BE.
+//  Created by admin on 7/20/2559 BE.
 //  Copyright © 2559 All2Sale. All rights reserved.
 //
 
 import UIKit
 
-class PageOptionColorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PageWriteReviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView:UITableView!
-    
-    var  colorArray = ["Red", "Black", "Green"]
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return colorArray.count
+        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell0 = tableView.dequeueReusableCellWithIdentifier("tableCell0")
-        cell0?.textLabel?.text = colorArray[indexPath.row]
-        return cell0!
+        let cell0 = tableView.dequeueReusableCellWithIdentifier("tableCell0") as! PageWriteReviewCell0TableViewCell
+        
+        return cell0
     }
     override func viewDidLoad() {
         super.viewDidLoad()
