@@ -1,33 +1,23 @@
 //
-//  PageFilterProductViewController.swift
+//  PageRatingViewController.swift
 //  Page1ProductB1
 //
-//  Created by admin on 7/20/2559 BE.
+//  Created by admin on 7/22/2559 BE.
 //  Copyright © 2559 All2Sale. All rights reserved.
 //
 
 import UIKit
 
-class PageFilterProductViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PageRatingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView:UITableView!
     
-    
-    @IBAction func btnDone() {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        /*
-        if((self.presentingViewController) != nil){
-            self.dismissViewControllerAnimated(false, completion: nil)
-            print("done")
-        }
-        */
-    }
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 6
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -40,15 +30,31 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
         } else if indexPath.row == 2 {
             let cell2 = tableView.dequeueReusableCellWithIdentifier("tableCell2")
             return cell2!
-        } else {
+        } else if indexPath.row == 3 {
             let cell3 = tableView.dequeueReusableCellWithIdentifier("tableCell3")
             return cell3!
+        } else if indexPath.row == 4 {
+            let cell4 = tableView.dequeueReusableCellWithIdentifier("tableCell4")
+            return cell4!
+        } else {
+            let cell5 = tableView.dequeueReusableCellWithIdentifier("tableCell5")
+            return cell5!
         }
-        
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.allowsMultipleSelection = true
+        
         // Do any additional setup after loading the view.
     }
 

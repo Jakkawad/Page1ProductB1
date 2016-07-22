@@ -13,6 +13,59 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
 
     @IBOutlet weak var collectionView:UICollectionView!
     
+    @IBOutlet var gridButton:UIButton!
+    @IBOutlet var listButton:UIButton!
+    
+    var gridFlowLayout = ProductsGridFlowLayout()
+    
+    var listFlowLayout = ProductsListFlowLayout()
+    
+    var isGridFlowLayoutUsed:Bool = false {
+        didSet {
+            listButton.alpha = (isGridFlowLayoutUsed == true) ? 0.9 : 1.0
+            gridButton.alpha = (isGridFlowLayoutUsed == true) ? 1.0 : 0.9
+        }
+    }
+    
+    @IBAction func gridButtonPressed() {
+        // change to list layout
+        isGridFlowLayoutUsed = false
+        
+        UIView.animateWithDuration(0.2) { () -> Void in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+            self.collectionView.setCollectionViewLayout(self.listFlowLayout, animated: true)
+        }
+    }
+    
+    @IBAction func listButtonPressed() {
+        // change to grid layout
+        isGridFlowLayoutUsed = true
+        
+        UIView.animateWithDuration(0.2) { () -> Void in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+            self.collectionView.setCollectionViewLayout(self.gridFlowLayout, animated: true)
+        }
+        
+    }
+    
+    @IBAction func btnFilter(sender: AnyObject) {
+        //self.performSegueWithIdentifier("FilterSegue", sender:sender)
+        print("Filter")
+    }
+    
+    @IBAction func btnSort(sender: AnyObject) {
+        print("Sort")
+    }
+    
+    func setupInitalLayout() {
+        isGridFlowLayoutUsed = true
+        collectionView.collectionViewLayout = gridFlowLayout
+    }
+    
+    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration:NSTimeInterval) {
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     @IBAction func searchFilter(sender: AnyObject) {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
         
@@ -69,8 +122,28 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
         cell0.imageViewProduct.setImageWithURL(NSURL(string: dummyImage("176x176"))!)
         return cell0
     }
+    
+    
+    /*
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "FilterSegue" {
+            let FilterVC = segue.destinationViewController as? PageFilterProductViewController
+            print("FilterVC")
+        }
+    }
+    */
     /*
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let screenSize:CGRect = UIScreen.mainScreen().bounds
+        print("ScreenSize = \(screenSize)")
+        let screenWidth = screenSize.width
+        print("ScreenWidth = \(screenWidth)")
+        let sw = (screenWidth/2)-11
+        let ss = (screenWidth/2)+52
+        print("SW = \(sw)")
+        print("SS = \(ss)")
+        //return CGSize(width: sw, height: ss)
+        return CGSize(width: sw, height: ss)
         
     }
     */
