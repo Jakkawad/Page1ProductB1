@@ -10,7 +10,7 @@ import UIKit
 
 class ProductsListFlowLayout: UICollectionViewFlowLayout {
     // fix size
-    let itemHeight: CGFloat = 120
+    let itemHeight: CGFloat = 240
     
     override init() {
         super.init()

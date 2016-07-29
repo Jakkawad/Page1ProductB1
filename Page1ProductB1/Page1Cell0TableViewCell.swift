@@ -29,6 +29,9 @@ class Page1Cell0TableViewCell: UITableViewCell, UICollectionViewDataSource, UICo
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
+        
         // Initialization code
     }
 

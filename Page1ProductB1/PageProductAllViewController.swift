@@ -16,6 +16,8 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet var gridButton:UIButton!
     @IBOutlet var listButton:UIButton!
     
+    var isGridView = false
+    
     var gridFlowLayout = ProductsGridFlowLayout()
     
     var listFlowLayout = ProductsListFlowLayout()
@@ -29,23 +31,50 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
     
     @IBAction func gridButtonPressed() {
         // change to list layout
+        print("Grid")
+        
+        isGridView = true
+        print(isGridView)
+        
+        collectionView?.performBatchUpdates({
+            // load or setup for gridlayout
+            
+            }, completion: nil)
+        
+        collectionView?.reloadData()
+        
+        /*
         isGridFlowLayoutUsed = false
         
         UIView.animateWithDuration(0.2) { () -> Void in
             self.collectionView.collectionViewLayout.invalidateLayout()
             self.collectionView.setCollectionViewLayout(self.listFlowLayout, animated: true)
         }
+        */
     }
     
     @IBAction func listButtonPressed() {
         // change to grid layout
+        print("List")
+        
+        isGridView = false
+        print(isGridView)
+        
+        collectionView?.performBatchUpdates({
+            // load or setup for blocklayout
+            
+            }, completion: nil)
+        
+        collectionView?.reloadData()
+        
+        /*
         isGridFlowLayoutUsed = true
         
         UIView.animateWithDuration(0.2) { () -> Void in
             self.collectionView.collectionViewLayout.invalidateLayout()
             self.collectionView.setCollectionViewLayout(self.gridFlowLayout, animated: true)
         }
-        
+        */
     }
     
     @IBAction func btnFilter(sender: AnyObject) {
@@ -56,12 +85,12 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
     @IBAction func btnSort(sender: AnyObject) {
         print("Sort")
     }
-    
+    /*
     func setupInitalLayout() {
         isGridFlowLayoutUsed = true
         collectionView.collectionViewLayout = gridFlowLayout
     }
-    
+    */
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration:NSTimeInterval) {
         collectionView.collectionViewLayout.invalidateLayout()
     }
@@ -118,9 +147,30 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        var cell:UICollectionViewCell
+        
+        if(isGridView) {
+            let gridCell = collectionView.dequeueReusableCellWithReuseIdentifier("collectCell0", forIndexPath: indexPath) as! PageProductAllCell0CollectionViewCell
+            // some setup
+            
+            //cell = gridCell
+            return gridCell
+        } else {
+            let blockCell = collectionView.dequeueReusableCellWithReuseIdentifier("collectCell1", forIndexPath: indexPath)// as! PageProductAllCell0CollectionViewCell
+            // some setup
+            
+            //cell = blockCell
+            return blockCell
+        }
+        
+        //eturn cell
+        
+        /*
         let cell0 = collectionView.dequeueReusableCellWithReuseIdentifier("collectCell0", forIndexPath: indexPath) as! PageProductAllCell0CollectionViewCell
         cell0.imageViewProduct.setImageWithURL(NSURL(string: dummyImage("176x176"))!)
         return cell0
+        */
     }
     
     
@@ -150,6 +200,9 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        //print("CGRECT = \(CGRectGetWidth(collectionView!.frame))")
+        
         // Do any additional setup after loading the view.
     }
 

@@ -11,4 +11,5 @@ import UIKit
 class Page1Cell0CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageViewProduct:UIImageView!
+    @IBOutlet weak var lblProductName:UILabel!
 }

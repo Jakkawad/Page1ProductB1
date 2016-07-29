@@ -12,13 +12,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var tableView:UITableView!
     
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -26,8 +25,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return cell0
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 

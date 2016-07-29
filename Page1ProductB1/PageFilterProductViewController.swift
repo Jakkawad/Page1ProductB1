@@ -12,7 +12,6 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
 
     @IBOutlet weak var tableView:UITableView!
     
-    
     @IBAction func btnDone() {
         self.dismissViewControllerAnimated(true, completion: nil)
         /*
@@ -22,6 +21,10 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
         }
         */
     }
+    
+    var arrayFilterTitle:String!
+    var rating:String!
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -33,6 +36,7 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell0 = tableView.dequeueReusableCellWithIdentifier("tableCell0")
+            cell0?.detailTextLabel?.text = arrayFilterTitle
             return cell0!
         } else if indexPath.row == 1 {
             let cell1 = tableView.dequeueReusableCellWithIdentifier("tableCell1")
@@ -46,9 +50,38 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
         }
         
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        //tableView.reloadData()
+        //print("viewWillAppear")
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        //print("viewWillDisappear")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        /*
+        if arrayFilterTitle == nil {
+            print("Error")
+        } else if arrayFilterTitle != nil {
+            print("ArrayFilterTitle = \(arrayFilterTitle)")
+            tableView.reloadData()
+        }
+        */
+        if rating == nil {
+            print("Rating Error")
+        } else {
+            print("Rating =\(rating)")
+        }
+
+        //print("viewDidAppear")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print("viewDidLoad")
+        
         // Do any additional setup after loading the view.
     }
 

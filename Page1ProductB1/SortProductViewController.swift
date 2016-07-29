@@ -8,19 +8,25 @@
 
 import UIKit
 
+
 class SortProductViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    
     @IBOutlet weak var tableView:UITableView!
+    
+    var arrayFilterTitle = ["สินค้าล่าสุด","ราคาต่ำ-สูง", "เรทติ้ง", "เรียงตามชื่อ A-Z", "เรียงตามชื่อ Z-A"]
+   
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return arrayFilterTitle.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        /*
         if indexPath.row == 0 {
             let cell0 = tableView.dequeueReusableCellWithIdentifier("tableCell0")
             return cell0!
@@ -37,7 +43,21 @@ class SortProductViewController: UIViewController, UITableViewDataSource, UITabl
             let cell4 = tableView.dequeueReusableCellWithIdentifier("tableCell4")
             return cell4!
         }
+        */
+        let cell0 = tableView.dequeueReusableCellWithIdentifier("tableCell0")
+        cell0?.textLabel?.text = arrayFilterTitle[indexPath.row]
+        return cell0!
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //print(arrayFilterTitle[indexPath.row])
+        let pageFilter = self.navigationController?.viewControllers[0] as! PageFilterProductViewController
+        pageFilter.arrayFilterTitle = arrayFilterTitle[indexPath.row]
+        //FilterOption(_filterSort: arrayFilterTitle[indexPath.row])
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

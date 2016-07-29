@@ -12,37 +12,54 @@ class PageRatingViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var tableView:UITableView!
     
+    @IBAction func returnRating() {
+        
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    var arrayRating = ["All", "1", "2", "3", "4", "5"]
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        //return 6
+        return arrayRating.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell0 = tableView.dequeueReusableCellWithIdentifier("tableCell0")
+            //print(arrayRating[indexPath.row])
             return cell0!
         } else if indexPath.row == 1 {
             let cell1 = tableView.dequeueReusableCellWithIdentifier("tableCell1")
+            //print(arrayRating[indexPath.row])
             return cell1!
         } else if indexPath.row == 2 {
             let cell2 = tableView.dequeueReusableCellWithIdentifier("tableCell2")
+            //print(arrayRating[indexPath.row])
             return cell2!
         } else if indexPath.row == 3 {
             let cell3 = tableView.dequeueReusableCellWithIdentifier("tableCell3")
+            //print(arrayRating[indexPath.row])
             return cell3!
         } else if indexPath.row == 4 {
             let cell4 = tableView.dequeueReusableCellWithIdentifier("tableCell4")
+            //print(arrayRating[indexPath.row])
             return cell4!
         } else {
             let cell5 = tableView.dequeueReusableCellWithIdentifier("tableCell5")
+            //print(arrayRating[indexPath.row])
             return cell5!
         }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row)
+        let pageFilter = self.navigationController?.viewControllers[0] as! PageFilterProductViewController
+        pageFilter.rating = arrayRating[indexPath.row]
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 class ProductsGridFlowLayout:UICollectionViewFlowLayout {
     // fix size
-    let itemHeight: CGFloat = 120
+    let itemHeight: CGFloat = 156
     
     override init() {
         super.init()
@@ -28,7 +28,8 @@ class ProductsGridFlowLayout:UICollectionViewFlowLayout {
     }
     
     func itemWidth() -> CGFloat {
-        return (CGRectGetWidth(collectionView!.frame)/2)-1
+        //return (CGRectGetWidth(collectionView!.frame)/2)-1
+        return 240
     }
     
     override var itemSize: CGSize {
