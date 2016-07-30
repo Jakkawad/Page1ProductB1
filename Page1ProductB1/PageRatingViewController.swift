@@ -17,7 +17,9 @@ class PageRatingViewController: UIViewController, UITableViewDataSource, UITable
         navigationController?.popViewControllerAnimated(true)
     }
     
-    var arrayRating = ["All", "1", "2", "3", "4", "5"]
+    var arrayRating:[String] = ["All", "1", "2", "3", "4", "5"]
+    var arrayRated:[String] = []
+    //var selectedRating = ["nil"]
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -57,13 +59,23 @@ class PageRatingViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if arrayRating[indexPath.row] == "All" {
+            print("Select All")
+        }
         print(indexPath.row)
         let pageFilter = self.navigationController?.viewControllers[0] as! PageFilterProductViewController
-        pageFilter.rating = arrayRating[indexPath.row]
+        //pageFilter.rating = arrayRating[indexPath.row]
+        var selectedRating = arrayRating[indexPath.row]
+        selectedRating = arrayRating[indexPath.row]
+        arrayRated.append(selectedRating)
+        pageFilter.rating = arrayRated
+        print(arrayRated)
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        print("Deselect = \(arrayRating[indexPath.row])")
+        
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
     }
     

@@ -23,7 +23,7 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
     }
     
     var arrayFilterTitle:String!
-    var rating:String!
+    var rating:[String]!
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -43,12 +43,31 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
             return cell1!
         } else if indexPath.row == 2 {
             let cell2 = tableView.dequeueReusableCellWithIdentifier("tableCell2")
+            var ratingText:String!
+            ratingText = ""
+            if(rating != nil){
+                var i = 1
+                for ratings in rating {
+                    if(i == rating.count){
+                    ratingText.appendContentsOf(ratings)
+                    }else{
+                    ratingText.appendContentsOf(ratings+",")
+                    }
+                    i += 1
+                }
+            }
+            print(ratingText);
+            cell2?.detailTextLabel?.text = ratingText
             return cell2!
         } else {
             let cell3 = tableView.dequeueReusableCellWithIdentifier("tableCell3")
             return cell3!
         }
         
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // Pass Data to FilterOption
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -73,8 +92,9 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
             print("Rating Error")
         } else {
             print("Rating =\(rating)")
+            tableView.reloadData()
         }
-
+        
         //print("viewDidAppear")
     }
     override func viewDidLoad() {
