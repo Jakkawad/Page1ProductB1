@@ -1202,7 +1202,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qlb-JG-RSL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3442" y="-56"/>
+            <point key="canvasLocation" x="3384" y="-56"/>
         </scene>
         <!--หมวดหมู่หลัก-->
         <scene sceneID="VLg-X2-vBM">
@@ -1298,6 +1298,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="1Kw-wi-52x" id="NHK-En-Oxr"/>
+                                    <outlet property="delegate" destination="1Kw-wi-52x" id="dxK-1l-gZV"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1470,7 +1474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qk7-BF-CfD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4127" y="-56"/>
+            <point key="canvasLocation" x="4079" y="-56"/>
         </scene>
         <!--ตัวเลือกสินค้า-->
         <scene sceneID="nBb-IH-TJc">

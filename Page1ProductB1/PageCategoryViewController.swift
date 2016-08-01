@@ -12,16 +12,19 @@ class PageCategoryViewController: UIViewController, UITableViewDataSource, UITab
 
     @IBOutlet weak var tableView:UITableView!
     
+    var arrayCategory = ["รองเท้า", "กล้อง", "หมวดหมู่หลัก", "หมวดหมู่หลัก", "หมวดหมู่หลัก"]
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return arrayCategory.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell0 = tableView.dequeueReusableCellWithIdentifier("tableCell0")
+        cell0?.textLabel?.text = arrayCategory[indexPath.row]
         return cell0!
     }
     override func viewDidLoad() {

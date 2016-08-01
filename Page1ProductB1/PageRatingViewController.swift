@@ -18,7 +18,7 @@ class PageRatingViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     var arrayRating:[String] = ["All", "1", "2", "3", "4", "5"]
-    var arrayRated:[String] = []
+    var arrayRated = [String]()
     //var selectedRating = ["nil"]
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -61,21 +61,36 @@ class PageRatingViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if arrayRating[indexPath.row] == "All" {
             print("Select All")
+            tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
+            if tableView.cellForRowAtIndexPath(indexPath)?.accessoryType == UITableViewCellAccessoryType.None {
+                print("NONE")
+            } else {
+                print("Error NONE")
+            }
+            //print(indexPath)
         }
-        print(indexPath.row)
+        
         let pageFilter = self.navigationController?.viewControllers[0] as! PageFilterProductViewController
         //pageFilter.rating = arrayRating[indexPath.row]
-        var selectedRating = arrayRating[indexPath.row]
-        selectedRating = arrayRating[indexPath.row]
-        arrayRated.append(selectedRating)
+        //var selectedRating = arrayRating[indexPath.row]
+        //selectedRating = arrayRating[indexPath.row]
+        //arrayRated.append(selectedRating)
+        arrayRated.append(arrayRating[indexPath.row])
+        print("ArrayRated = \(arrayRated)")
         pageFilter.rating = arrayRated
-        print(arrayRated)
+        //print(arrayRated)
+        
+        
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         print("Deselect = \(arrayRating[indexPath.row])")
-        
+        if let indexValue = arrayRated.indexOf(arrayRating[indexPath.row]) {
+            arrayRated.removeAtIndex(indexValue)
+        }
+        //arrayRated.removeAtIndex()
+        print("ArrayRated = \(arrayRated)")
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
     }
     
