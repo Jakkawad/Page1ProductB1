@@ -10,6 +10,8 @@ import UIKit
 import MapleBacon
 
 class PageDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
 
     @IBOutlet weak var tableView:UITableView!
     
@@ -162,6 +164,7 @@ class PageDetailViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Do any additional setup after loading the view.
     }
 

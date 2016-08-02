@@ -34,6 +34,15 @@ class PageRatingViewController: UIViewController, UITableViewDataSource, UITable
         if indexPath.row == 0 {
             let cell0 = tableView.dequeueReusableCellWithIdentifier("tableCell0")
             //print(arrayRating[indexPath.row])
+            /*
+            if cell0?.accessoryType == UITableViewCellAccessoryType.Checkmark {
+                cell0?.accessoryType = UITableViewCellAccessoryType.None
+                print("NONE")
+            } else {
+                cell0?.accessoryType = UITableViewCellAccessoryType.Checkmark
+                print("CHECK")
+            }
+            */
             return cell0!
         } else if indexPath.row == 1 {
             let cell1 = tableView.dequeueReusableCellWithIdentifier("tableCell1")
