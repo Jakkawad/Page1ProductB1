@@ -20,6 +20,7 @@ class PageRatingViewController: UIViewController, UITableViewDataSource, UITable
     var arrayRating:[String] = ["All", "1", "2", "3", "4", "5"]
     var arrayRated = [String]()
     //var selectedRating = ["nil"]
+    internal var selectedIndexPath:NSIndexPath? = nil
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -68,16 +69,17 @@ class PageRatingViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        //selectedCell.contentView.backgroundColor = UIColor.whiteColor()
+        selectedCell.selectionStyle = UITableViewCellSelectionStyle.None
+        print(indexPath)
         if arrayRating[indexPath.row] == "All" {
             print("Select All")
-            tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.None
-            if tableView.cellForRowAtIndexPath(indexPath)?.accessoryType == UITableViewCellAccessoryType.None {
-                print("NONE")
-            } else {
-                print("Error NONE")
-            }
-            //print(indexPath)
+            navigationController?.popViewControllerAnimated(true)
         }
+        
+        
+        // MARK: Pass Data
         
         let pageFilter = self.navigationController?.viewControllers[0] as! PageFilterProductViewController
         //pageFilter.rating = arrayRating[indexPath.row]
