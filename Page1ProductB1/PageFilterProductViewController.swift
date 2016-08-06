@@ -8,11 +8,25 @@
 
 import UIKit
 
-class PageFilterProductViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class PageFilterProductViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
+    // MARK: Outlet
+    
+    @IBOutlet weak var txtPriceStart:UITextField!
+    @IBOutlet weak var txtPriceEnd:UITextField!
     @IBOutlet weak var tableView:UITableView!
     
+    // MARK: Action
+    
     @IBAction func btnDone() {
+        
+        
+        print("ArrayFilter = \(arrayFilterTitle)")
+        print("Rating = \(rating)")
+        print("Category = \(category)")
+        print("PriceStart = \(priceStart)")
+        print("PriceEnd = \(priceEnd)")
+        
         self.dismissViewControllerAnimated(true, completion: nil)
         /*
         if((self.presentingViewController) != nil){
@@ -22,8 +36,15 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
         */
     }
     
+    // MARK: Array
+    
     var arrayFilterTitle:String!
     var rating:[String]!
+    var category:String!
+    var priceStart:String!
+    var priceEnd:String!
+    
+    // MARK UITableViewDelegate
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -40,6 +61,7 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
             return cell0!
         } else if indexPath.row == 1 {
             let cell1 = tableView.dequeueReusableCellWithIdentifier("tableCell1")
+            cell1?.detailTextLabel?.text = category
             return cell1!
         } else if indexPath.row == 2 {
             let cell2 = tableView.dequeueReusableCellWithIdentifier("tableCell2")
@@ -60,8 +82,14 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
             cell2?.detailTextLabel?.text = ratingText
             return cell2!
         } else {
-            let cell3 = tableView.dequeueReusableCellWithIdentifier("tableCell3")
-            return cell3!
+            let cell3 = tableView.dequeueReusableCellWithIdentifier("tableCell3") as! PageFilterProductCell3TableViewCell
+            
+            cell3.txtPriceStart.delegate = self
+            cell3.txtPriceEnd.delegate = self
+            priceStart = cell3.txtPriceStart.text
+            priceEnd = cell3.txtPriceEnd.text
+            
+            return cell3
         }
         
     }
@@ -69,6 +97,8 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // Pass Data to FilterOption
     }
+    
+    // MARK: ViewController
     
     override func viewWillAppear(animated: Bool) {
         //tableView.reloadData()
@@ -88,18 +118,24 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
             tableView.reloadData()
         }
         */
+        /*
         if rating == nil {
             print("Rating Error")
         } else {
             print("Rating =\(rating)")
             tableView.reloadData()
         }
-        
+        */
+        tableView.reloadData()
         //print("viewDidAppear")
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
+        txtPriceStart.delegate = self
+        txtPriceEnd.delegate = self
+        */
         print("viewDidLoad")
         
         // Do any additional setup after loading the view.
@@ -111,6 +147,13 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
     }
     
 
+    // MARK: UITextFiled    Delegates
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        print("TextField should return method called")
+        textField.resignFirstResponder()
+        return true
+    }
     /*
     // MARK: - Navigation
 

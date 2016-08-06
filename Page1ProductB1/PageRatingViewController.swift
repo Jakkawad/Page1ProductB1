@@ -20,7 +20,7 @@ class PageRatingViewController: UIViewController, UITableViewDataSource, UITable
     var arrayRating:[String] = ["All", "1", "2", "3", "4", "5"]
     var arrayRated = [String]()
     //var selectedRating = ["nil"]
-    internal var selectedIndexPath:NSIndexPath? = nil
+    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -72,15 +72,26 @@ class PageRatingViewController: UIViewController, UITableViewDataSource, UITable
         let selectedCell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         //selectedCell.contentView.backgroundColor = UIColor.whiteColor()
         selectedCell.selectionStyle = UITableViewCellSelectionStyle.None
-        print(indexPath)
+        //print(indexPath)
+        let pageFilter = self.navigationController?.viewControllers[0] as! PageFilterProductViewController
         if arrayRating[indexPath.row] == "All" {
             print("Select All")
+            let selectAll = ["All"]
+            //arrayRated.append(arrayRating[indexPath.row])
+            arrayRated = selectAll
+            print("ArrayRated = \(arrayRated)")
+            pageFilter.rating = arrayRated
             navigationController?.popViewControllerAnimated(true)
+        } else {
+            print("Number Rating")
+            arrayRated.append(arrayRating[indexPath.row])
+            print("ArrayRated = \(arrayRated)")
+            pageFilter.rating = arrayRated
         }
         
         
         // MARK: Pass Data
-        
+        /*
         let pageFilter = self.navigationController?.viewControllers[0] as! PageFilterProductViewController
         //pageFilter.rating = arrayRating[indexPath.row]
         //var selectedRating = arrayRating[indexPath.row]
@@ -90,7 +101,7 @@ class PageRatingViewController: UIViewController, UITableViewDataSource, UITable
         print("ArrayRated = \(arrayRated)")
         pageFilter.rating = arrayRated
         //print(arrayRated)
-        
+        */
         
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = UITableViewCellAccessoryType.Checkmark
     }
