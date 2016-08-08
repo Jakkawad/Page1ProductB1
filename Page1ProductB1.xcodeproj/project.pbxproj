@@ -17,6 +17,7 @@
 		841A20F71D3CD962001F437B /* PageOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A20F61D3CD962001F437B /* PageOptionViewController.swift */; };
 		841A20F91D3CDBBB001F437B /* PageOptionCell0TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A20F81D3CDBBB001F437B /* PageOptionCell0TableViewCell.swift */; };
 		841A20FB1D3CDCD8001F437B /* PageOptionColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841A20FA1D3CDCD8001F437B /* PageOptionColorViewController.swift */; };
+		8455D2881D58894800C6B2F8 /* TextFieldPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8455D2871D58894800C6B2F8 /* TextFieldPrice.swift */; };
 		845A29821D41C9AD00E0A355 /* SortProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A29811D41C9AD00E0A355 /* SortProductViewController.swift */; };
 		845A29851D41D11100E0A355 /* PageRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A29841D41D11100E0A355 /* PageRatingViewController.swift */; };
 		845A29881D41D2C500E0A355 /* PageCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A29871D41D2C500E0A355 /* PageCategoryViewController.swift */; };
@@ -71,6 +72,7 @@
 		841A20F61D3CD962001F437B /* PageOptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageOptionViewController.swift; sourceTree = "<group>"; };
 		841A20F81D3CDBBB001F437B /* PageOptionCell0TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageOptionCell0TableViewCell.swift; sourceTree = "<group>"; };
 		841A20FA1D3CDCD8001F437B /* PageOptionColorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageOptionColorViewController.swift; sourceTree = "<group>"; };
+		8455D2871D58894800C6B2F8 /* TextFieldPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldPrice.swift; sourceTree = "<group>"; };
 		845A29811D41C9AD00E0A355 /* SortProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortProductViewController.swift; sourceTree = "<group>"; };
 		845A29841D41D11100E0A355 /* PageRatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageRatingViewController.swift; sourceTree = "<group>"; };
 		845A29871D41D2C500E0A355 /* PageCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCategoryViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				846758FC1D3C853900EBEE50 /* Assets.xcassets */,
 				846758FE1D3C853900EBEE50 /* LaunchScreen.storyboard */,
 				846759011D3C853900EBEE50 /* Info.plist */,
+				8455D2871D58894800C6B2F8 /* TextFieldPrice.swift */,
 				848065D71D4B0CA400E9A3CD /* Page1Product.swift */,
 				847451E31D509D86003B85C5 /* Page1Category.swift */,
 				846759111D3C89C500EBEE50 /* DummyData.swift */,
@@ -549,6 +552,7 @@
 				846759121D3C89C500EBEE50 /* DummyData.swift in Sources */,
 				841A20F71D3CD962001F437B /* PageOptionViewController.swift in Sources */,
 				846EC6C21D3F2C0300762E83 /* PageWebViewViewController.swift in Sources */,
+				8455D2881D58894800C6B2F8 /* TextFieldPrice.swift in Sources */,
 				8467590E1D3C891400EBEE50 /* Page1Cell0CollectionViewCell.swift in Sources */,
 				846EC6D31D3F4B6F00762E83 /* PageProductAllViewController.swift in Sources */,
 				841A20F91D3CDBBB001F437B /* PageOptionCell0TableViewCell.swift in Sources */,

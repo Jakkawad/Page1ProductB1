@@ -44,6 +44,7 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
     var priceStart:String!
     var priceEnd:String!
     
+    
     // MARK UITableViewDelegate
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -83,12 +84,25 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
             return cell2!
         } else {
             let cell3 = tableView.dequeueReusableCellWithIdentifier("tableCell3") as! PageFilterProductCell3TableViewCell
+            priceStart = cell3.priceStart
+            priceEnd = cell3.priceEnd
             
+            /*
             cell3.txtPriceStart.delegate = self
             cell3.txtPriceEnd.delegate = self
+            if cell3.dataString == nil {
+                print("Error")
+            } else {
+                print(cell3.dataString)
+            }
+            */
+            // MARK: PassData
+            /*
             priceStart = cell3.txtPriceStart.text
             priceEnd = cell3.txtPriceEnd.text
-            
+            print("PriceStart = \(txtPriceStart)")
+            */
+            //cell3.test()
             return cell3
         }
         
@@ -127,6 +141,7 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
         }
         */
         tableView.reloadData()
+        
         //print("viewDidAppear")
     }
     
@@ -148,12 +163,20 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
     
 
     // MARK: UITextFiled    Delegates
-    
+    /*
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         print("TextField should return method called")
         textField.resignFirstResponder()
         return true
     }
+    
+    func textFieldShouldEndEditing(textField: UITextField) -> Bool {
+        print("TextField should and editing method called")
+        txtPriceStart.text = "KAS"
+        
+        return true
+    }
+    */
     /*
     // MARK: - Navigation
 
