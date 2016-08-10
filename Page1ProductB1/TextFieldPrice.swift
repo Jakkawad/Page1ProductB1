@@ -10,14 +10,18 @@ import Foundation
 
 class TextFieldPrice {
     var start:String!
-    var end:String!
+    //var end:String!
     
     func textPriceDescription() {
-        print("Start = \(start), End = \(end)")
+        //print("Start = \(start), End = \(end)")
     }
-    
+    /*
     init(_start:String, _end:String) {
         self.start = _start
         self.end = _end
+    }
+    */
+    init(_start:String) {
+        self.start = _start
     }
 }

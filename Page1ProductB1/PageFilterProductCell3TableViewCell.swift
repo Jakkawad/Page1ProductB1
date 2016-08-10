@@ -14,6 +14,7 @@ class PageFilterProductCell3TableViewCell: UITableViewCell,UITextFieldDelegate {
     @IBOutlet weak var txtPriceEnd:UITextField!
     
     
+    
     // MARK: 
     
     //var dataString:String!
@@ -36,6 +37,7 @@ class PageFilterProductCell3TableViewCell: UITableViewCell,UITextFieldDelegate {
         //print(dataString)
         priceStart = txtPriceStart.text
         priceEnd = txtPriceEnd.text
+        
         print("PriceStart = \(priceStart)")
         print("PriceEnd = \(priceEnd)")
         

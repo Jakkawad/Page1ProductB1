@@ -18,8 +18,11 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
     
     // MARK: Action
     
+    @IBAction func refresh() {
+        tableView.reloadData()
+    }
+    
     @IBAction func btnDone() {
-        
         
         print("ArrayFilter = \(arrayFilterTitle)")
         print("Rating = \(rating)")
