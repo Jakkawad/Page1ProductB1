@@ -16,8 +16,9 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
     @IBOutlet var gridButton:UIButton!
     @IBOutlet var listButton:UIButton!
     
-    var isGridView = false
-    
+    var isGridView = true
+    var changeLayoutDelay:Double = 0.3
+    /*
     var gridFlowLayout = ProductsGridFlowLayout()
     
     var listFlowLayout = ProductsListFlowLayout()
@@ -28,21 +29,43 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
             gridButton.alpha = (isGridFlowLayoutUsed == true) ? 1.0 : 0.9
         }
     }
-    
+    */
     @IBAction func gridButtonPressed() {
         // change to list layout
         print("Grid")
         
+        if isGridView == true {
+            print("Nothing")
+        } else {
+            print("Todo")
+            isGridView = true
+            
+            collectionView?.performBatchUpdates({
+                // load or setup for gridlayout
+                print("PerformBatchUpdates")
+                
+                }, completion: nil)
+
+            delay(changeLayoutDelay) {
+                self.collectionView.reloadData()
+            }
+            
+        }
+        /*
         isGridView = true
-        print(isGridView)
+        //print(isGridView)
         
         collectionView?.performBatchUpdates({
             // load or setup for gridlayout
             
             }, completion: nil)
         
-        collectionView?.reloadData()
+        //collectionView?.reloadData()
         
+        delay(0.3) {
+            self.collectionView.reloadData()
+        }
+        */
         /*
         isGridFlowLayoutUsed = false
         
@@ -57,16 +80,38 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
         // change to grid layout
         print("List")
         
+        if isGridView == false {
+            print("Nothing")
+        } else {
+            print("Todo")
+            isGridView = false
+            
+            collectionView?.performBatchUpdates({
+                // load or setup for gridlayout
+                
+                }, completion: nil)
+            
+            delay(changeLayoutDelay) {
+                self.collectionView.reloadData()
+            }
+            
+        }
+        
+        /*
         isGridView = false
-        print(isGridView)
+        //print(isGridView)
         
         collectionView?.performBatchUpdates({
             // load or setup for blocklayout
             
             }, completion: nil)
         
-        collectionView?.reloadData()
+        ///collectionView?.reloadData()
         
+        delay(0.3) {
+            self.collectionView.reloadData()
+        }
+        */
         /*
         isGridFlowLayoutUsed = true
         
@@ -94,6 +139,8 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
     override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration:NSTimeInterval) {
         collectionView.collectionViewLayout.invalidateLayout()
     }
+    
+    // MARK: SearchFilter
     
     @IBAction func searchFilter(sender: AnyObject) {
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
@@ -138,6 +185,8 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
         self.presentViewController(optionMenu, animated: true, completion: nil)
     }
     
+    // MARK: UICollectionViewDelegate
+    
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -148,23 +197,21 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        var cell:UICollectionViewCell
+        //var cell:UICollectionViewCell
         
-        if(isGridView) {
+        if isGridView == true {
             let gridCell = collectionView.dequeueReusableCellWithReuseIdentifier("collectCell0", forIndexPath: indexPath) as! PageProductAllCell0CollectionViewCell
             // some setup
-            
+            gridCell.imageViewProduct.setImageWithURL(NSURL(string: dummyImage("176x176"))!)
             //cell = gridCell
             return gridCell
         } else {
-            let blockCell = collectionView.dequeueReusableCellWithReuseIdentifier("collectCell1", forIndexPath: indexPath)// as! PageProductAllCell0CollectionViewCell
+            let blockCell = collectionView.dequeueReusableCellWithReuseIdentifier("collectCell1", forIndexPath: indexPath) as! PageProductAllCell1CollectionViewCell
             // some setup
-            
+            blockCell.imageViewProduct.setImageWithURL(NSURL(string: dummyImage("378x138"))!)
             //cell = blockCell
             return blockCell
         }
-        
-        //eturn cell
         
         /*
         let cell0 = collectionView.dequeueReusableCellWithReuseIdentifier("collectCell0", forIndexPath: indexPath) as! PageProductAllCell0CollectionViewCell
@@ -182,21 +229,26 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
         }
     }
     */
-    /*
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let screenSize:CGRect = UIScreen.mainScreen().bounds
-        print("ScreenSize = \(screenSize)")
+        //print("ScreenSize = \(screenSize)")
         let screenWidth = screenSize.width
-        print("ScreenWidth = \(screenWidth)")
+        //print("ScreenWidth = \(screenWidth)")
         let sw = (screenWidth/2)-11
         let ss = (screenWidth/2)+52
-        print("SW = \(sw)")
-        print("SS = \(ss)")
+        //print("SW = \(sw)")
+        //print("SS = \(ss)")
         //return CGSize(width: sw, height: ss)
-        return CGSize(width: sw, height: ss)
+        
+        if isGridView == true {
+            return CGSize(width: sw, height: ss)
+        } else {
+            return CGSize(width: 375, height: 240)
+        }
         
     }
-    */
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

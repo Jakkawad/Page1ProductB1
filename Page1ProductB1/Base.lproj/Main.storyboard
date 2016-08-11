@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Page Product All View Controller-->
@@ -83,19 +82,41 @@
                                             <outlet property="lblProductPrice" destination="Ylu-51-Uxo" id="C3c-Dc-oqc"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectCell1" id="M5Z-y5-dDo">
-                                        <rect key="frame" x="212" y="74" width="176" height="240"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectCell1" id="M5Z-y5-dDo" customClass="PageProductAllCell1CollectionViewCell" customModule="Page1ProductB1" customModuleProvider="target">
+                                        <rect key="frame" x="212" y="74" width="378" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="176" height="240"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="378" height="240"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="CHM-F4-Hnd">
-                                                    <rect key="frame" x="22" y="91" width="94" height="29"/>
-                                                </stepper>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZXX-Br-41M">
+                                                    <rect key="frame" x="0.0" y="0.0" width="378" height="138"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xK-ep-Ou1">
+                                                    <rect key="frame" x="8" y="153" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R9f-nw-XTZ">
+                                                    <rect key="frame" x="8" y="173" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star0.png" translatesAutoresizingMaskIntoConstraints="NO" id="UbG-gp-C8a">
+                                                    <rect key="frame" x="8" y="210" width="102" height="22"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <size key="customSize" width="378" height="240"/>
+                                        <connections>
+                                            <outlet property="imageViewProduct" destination="ZXX-Br-41M" id="EWM-An-cOr"/>
+                                            <outlet property="imageViewRating" destination="UbG-gp-C8a" id="TeO-7y-e6o"/>
+                                            <outlet property="lblProductName" destination="6xK-ep-Ou1" id="jgZ-YE-jgS"/>
+                                            <outlet property="lblProductPrice" destination="R9f-nw-XTZ" id="piV-ol-Se0"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -116,7 +137,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="List"/>
                                             <connections>
-                                                <action selector="gridButtonPressed" destination="t0A-LS-NsX" eventType="touchUpInside" id="SrE-RW-RiW"/>
+                                                <action selector="listButtonPressed" destination="t0A-LS-NsX" eventType="touchUpInside" id="mzd-iv-nHz"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
@@ -127,7 +148,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Grid"/>
                                             <connections>
-                                                <action selector="listButtonPressed" destination="t0A-LS-NsX" eventType="touchUpInside" id="rSa-ND-cZ2"/>
+                                                <action selector="gridButtonPressed" destination="t0A-LS-NsX" eventType="touchUpInside" id="nEW-Jz-xFx"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
@@ -163,8 +184,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="rTo-IV-Gc1" id="7jH-xB-zGd"/>
-                        <outlet property="gridButton" destination="bLm-xv-hZo" id="6DY-VN-TzB"/>
-                        <outlet property="listButton" destination="7uN-RQ-yft" id="aCc-rX-0UD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pf4-Fx-Tag" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -211,7 +230,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Z59-PG-rb1" kind="push" id="wMw-ot-TJA"/>
+                                            <segue destination="Z59-PG-rb1" kind="push" identifier="Cell0Segue" id="wMw-ot-TJA"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tableCell1" textLabel="Tam-wa-Tbf" detailTextLabel="003-p9-XJS" style="IBUITableViewCellStyleValue1" id="UaK-v3-VuP">
@@ -238,7 +257,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="91M-GK-pI0" kind="push" id="U1E-O7-XNy"/>
+                                            <segue destination="91M-GK-pI0" kind="push" identifier="Cell1Segue" id="U1E-O7-XNy"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tableCell2" textLabel="nip-Zb-wT0" detailTextLabel="7QX-bf-d0c" style="IBUITableViewCellStyleValue1" id="wks-a1-a3E">
@@ -265,7 +284,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="bja-nM-BDz" kind="push" id="RA6-eY-dlL"/>
+                                            <segue destination="bja-nM-BDz" kind="push" identifier="Cell3Segue" id="RA6-eY-dlL"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell3" id="sgK-MH-esS" customClass="PageFilterProductCell3TableViewCell" customModule="Page1ProductB1" customModuleProvider="target">
@@ -343,18 +362,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="ฟิลเตอร์สินค้า" id="72t-gp-alN">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="done" id="vte-jS-9En">
-                                <connections>
-                                    <action selector="btnDone" destination="Qxl-Nt-eBK" id="rY8-5l-RAd"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Refresh" id="ORz-p2-dOJ">
-                                <connections>
-                                    <action selector="refresh" destination="Qxl-Nt-eBK" id="nzF-pR-znL"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="vte-jS-9En">
+                            <connections>
+                                <action selector="btnDone" destination="Qxl-Nt-eBK" id="rY8-5l-RAd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="uGe-ZA-6x0" id="vsa-2j-YLH"/>

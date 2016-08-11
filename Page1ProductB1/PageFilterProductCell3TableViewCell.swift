@@ -38,14 +38,16 @@ class PageFilterProductCell3TableViewCell: UITableViewCell,UITextFieldDelegate {
         priceStart = txtPriceStart.text
         priceEnd = txtPriceEnd.text
         
-        print("PriceStart = \(priceStart)")
-        print("PriceEnd = \(priceEnd)")
+        //print("PriceStart = \(priceStart)")
+        //print("PriceEnd = \(priceEnd)")
         
         return true
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        txtPriceStart.keyboardType = UIKeyboardType.NumberPad
+        txtPriceEnd.keyboardType = UIKeyboardType.NumberPad
         //txtPriceStart.delegate = self
         //txtPriceEnd.delegate = self
         // Initialization code

@@ -19,11 +19,31 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
     // MARK: Action
     
     @IBAction func refresh() {
-        tableView.reloadData()
+        //tableView.reloadData()
+        delay(2) {
+            self.tableView.reloadData()
+        }
     }
     
     @IBAction func btnDone() {
+        //tableView.reloadData()
+        delay(0.5) {
+            self.tableView.reloadData()
+            
+            delay(0.2) {
+                
+                print("ArrayFilter = \(self.arrayFilterTitle)")
+                print("Rating = \(self.rating)")
+                print("Category = \(self.category)")
+                print("PriceStart = \(self.priceStart)")
+                print("PriceEnd = \(self.priceEnd)")
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+
+            }
+        }
         
+        /*
         print("ArrayFilter = \(arrayFilterTitle)")
         print("Rating = \(rating)")
         print("Category = \(category)")
@@ -31,6 +51,8 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
         print("PriceEnd = \(priceEnd)")
         
         self.dismissViewControllerAnimated(true, completion: nil)
+        */
+        
         /*
         if((self.presentingViewController) != nil){
             self.dismissViewControllerAnimated(false, completion: nil)
@@ -180,14 +202,38 @@ class PageFilterProductViewController: UIViewController, UITableViewDataSource, 
         return true
     }
     */
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "Cell0Segue" {
+            print("Cell0Segue")
+            if arrayFilterTitle == nil {
+                print("NIL")
+                //let PageSort = segue.destinationViewController as! SortProductViewController
+                //arrayFilterTitle = PageSort.arrayFilterTitle
+            } else {
+                print("NOT NIL")
+            }
+        } else if segue.identifier == "Cell1Segue" {
+            print("Cell1Segue")
+
+        } else {
+            print("Cell2Segue")
+            if rating == nil {
+            
+            } else {
+                //let PageRating = segue.destinationViewController as! PageRatingViewController
+                //rating = PageRating.arrayRated
+                //PageRating.arrayRated = rating
+                //print(rating)
+                //print(PageRating.arrayRated)
+            }
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }
