@@ -42,10 +42,11 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
             
             collectionView?.performBatchUpdates({
                 // load or setup for gridlayout
-                print("PerformBatchUpdates")
+                //print("PerformBatchUpdates")
                 
                 }, completion: nil)
-
+            collectionView?.reloadData()
+            
             delay(changeLayoutDelay) {
                 self.collectionView.reloadData()
             }
@@ -90,6 +91,7 @@ class PageProductAllViewController: UIViewController, UICollectionViewDataSource
                 // load or setup for gridlayout
                 
                 }, completion: nil)
+            collectionView?.reloadData()
             
             delay(changeLayoutDelay) {
                 self.collectionView.reloadData()

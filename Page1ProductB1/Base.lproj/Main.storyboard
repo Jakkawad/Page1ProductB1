@@ -83,7 +83,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectCell1" id="M5Z-y5-dDo" customClass="PageProductAllCell1CollectionViewCell" customModule="Page1ProductB1" customModuleProvider="target">
-                                        <rect key="frame" x="212" y="74" width="378" height="240"/>
+                                        <rect key="frame" x="196" y="74" width="378" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="378" height="240"/>
