@@ -154,8 +154,8 @@
 		841A20E91D3CBC8C001F437B /* Cell4 */ = {
 			isa = PBXGroup;
 			children = (
-				846759221D3C962F00EBEE50 /* PageDetailCell4CollectionViewCell.swift */,
 				846759201D3C952000EBEE50 /* PageDetailCell4TableViewCell.swift */,
+				846759221D3C962F00EBEE50 /* PageDetailCell4CollectionViewCell.swift */,
 			);
 			name = Cell4;
 			sourceTree = "<group>";

@@ -9,7 +9,7 @@
 import UIKit
 import MapleBacon
 
-class PageDetailCell4TableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
+class PageDetailCell4TableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionView:UICollectionView!
     
@@ -22,12 +22,36 @@ class PageDetailCell4TableViewCell: UITableViewCell, UICollectionViewDataSource,
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        /*
         let cell0 = collectionView.dequeueReusableCellWithReuseIdentifier("collectCell0", forIndexPath: indexPath) as! PageDetailCell4CollectionViewCell
         cell0.imageViewLogo.setImageWithURL(NSURL(string: dummyImage("100x100"))!)
         return cell0
+        */
+        if indexPath.row == 0 {
+            let cell0 = collectionView.dequeueReusableCellWithReuseIdentifier("collectCell0", forIndexPath: indexPath)
+            return cell0
+        } else if indexPath.row == 1 {
+            let cell1 = collectionView.dequeueReusableCellWithReuseIdentifier("colllectCell1", forIndexPath: indexPath)
+            return cell1
+        } else {
+            let cell2 = collectionView.dequeueReusableCellWithReuseIdentifier("collectCell2", forIndexPath: indexPath)
+            return cell2
+        }
     }
+    
+    func configLayout() {
+        let mainRect = UIScreen.mainScreen().bounds
+        let mainWidth = mainRect.size.width
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.minimumLineSpacing = mainWidth/10
+        flowLayout.itemSize = CGSizeMake(mainWidth/2, mainWidth/2)
+        self.collectionView.collectionViewLayout = flowLayout
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        //configLayout()
         // Initialization code
     }
 
