@@ -13,6 +13,10 @@ class PageOptionViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var tableView:UITableView!
     
+    var dataAttay = [String]()
+    var color:String!
+    var zxc = "ASDF"
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -35,9 +39,9 @@ class PageOptionViewController: UIViewController, UITableViewDataSource, UITable
             
             return cell2!
         } else if indexPath.row == 3 {
-            let cell3 = tableView.dequeueReusableCellWithIdentifier("tableCell3")
+            let cell3 = tableView.dequeueReusableCellWithIdentifier("tableCell3") as! PageOptionCell3TableViewCell
             
-            return cell3!
+            return cell3
         } else {
             let cell4 = tableView.dequeueReusableCellWithIdentifier("tableCell4")
             
@@ -64,14 +68,29 @@ class PageOptionViewController: UIViewController, UITableViewDataSource, UITable
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let OptionVC = segue.destinationViewController as! PageOptionColorViewController
+        if segue.identifier == "ColorSegue" {
+            print("ColorSegue")
+            dataAttay = ["Red", "Black", "Green"]
+            //print(dataAttay)
+            OptionVC.colorArray = dataAttay
+            //print(OptionVC.colorArray)
+        } else if segue.identifier == "SizeSegue" {
+            print("SizeSegue")
+            dataAttay = ["S", "M", "XL", "XXL", "XLLL"]
+            OptionVC.colorArray = dataAttay
+        } else {
+            print("Nothing Segue")
+        }
     }
-    */
+    
 
 }

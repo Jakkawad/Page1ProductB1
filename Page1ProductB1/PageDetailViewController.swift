@@ -181,8 +181,14 @@ class PageDetailViewController: UIViewController, UITableViewDataSource, UITable
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PaymentSegue" {
             print("PaymentSegue")
+        } else if segue.identifier == "ShippingSegue" {
+            print("ShippingSegue")
+        } else if segue.identifier == "WarrantySegue" {
+            print("WarrantySegue")
+        } else if segue.identifier == "DetailSegue" {
+            print("DetailSegue")
         } else {
-            print("Error Segue")
+            print("Noting Segue")
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
