@@ -12,6 +12,33 @@ class PageOptionViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var tableView:UITableView!
     
+    @IBAction func unwindPageOption(segue: UIStoryboardSegue) {
+        if let pageReuse = segue.sourceViewController as? PageOptionReuseViewController {
+            let index = pageReuse.tableView.indexPathForSelectedRow
+            let cell = pageReuse.tableView.cellForRowAtIndexPath(index!)
+            let msg = cell?.textLabel?.text
+            print(msg)
+            colorSelected = msg
+        } else {
+            print("Erro")
+        }
+        /*
+        if let pageReuse = segue.sourceViewController as? UITableViewController {
+            let index = pageReuse.tableView.indexPathForSelectedRow
+            let cell = pageReuse.tableView.cellForRowAtIndexPath(index!)
+            let msg = cell?.textLabel?.text
+            print(msg)
+        } else {
+            print("Error")
+        }
+        */
+    }
+    
+    var colorArray = []
+    var sizeArray = []
+    var colorSelected:String!
+    var sizeSelected:String!
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -30,6 +57,9 @@ class PageOptionViewController: UIViewController, UITableViewDataSource, UITable
             return cell0!
         } else if indexPath.row == 1 {
             let cell1 = tableView.dequeueReusableCellWithIdentifier("tableCell1")
+            if colorSelected != nil {
+                cell1?.detailTextLabel?.text = colorSelected
+            }
             return cell1!
         } else if indexPath.row == 2 {
             let cell2 = tableView.dequeueReusableCellWithIdentifier("tableCell2")
@@ -50,6 +80,11 @@ class PageOptionViewController: UIViewController, UITableViewDataSource, UITable
             return 50
         }
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,14 +99,24 @@ class PageOptionViewController: UIViewController, UITableViewDataSource, UITable
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let PageOptionReuse = segue.destinationViewController as! PageOptionReuseViewController
+        if segue.identifier == "ColorSegue" {
+            colorArray = ["Red", "Black", "Blue", "Green"]
+            PageOptionReuse.colorArray = colorArray
+        } else if segue.identifier == "SizeSegue" {
+            sizeArray = ["S", "M", "L", "XL"]
+            PageOptionReuse.sizeArray = sizeArray
+        } else {
+            
+        }
     }
-    */
+    
 
 }

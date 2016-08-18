@@ -1903,7 +1903,7 @@
                                             <segue destination="g6P-iE-3Na" kind="push" identifier="SizeSegue" id="FM4-kw-QCl"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell3" rowHeight="50" id="zmM-u0-mEI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell3" rowHeight="50" id="zmM-u0-mEI" customClass="PageOptionCell3TableViewCell" customModule="Page1ProductB1" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="262" width="600" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zmM-u0-mEI" id="KZm-4p-mW1">
@@ -1931,6 +1931,9 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="emG-yM-fAU" secondAttribute="bottom" constant="1" id="w9D-31-fCC"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="txtTotal" destination="emG-yM-fAU" id="edT-cb-rqs"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell4" textLabel="8BF-Vz-M8H" detailTextLabel="Aon-fj-OYj" rowHeight="50" style="IBUITableViewCellStyleValue1" id="XO3-1D-hpr">
                                         <rect key="frame" x="0.0" y="312" width="600" height="50"/>
@@ -2014,6 +2017,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="6cJ-HO-4iv" kind="unwind" unwindAction="unwindPageOption:" id="5Po-pb-l5M"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -2036,6 +2042,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88L-wP-SoE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="6cJ-HO-4iv" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3384" y="599"/>
         </scene>
@@ -2314,7 +2321,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="5y6-at-tSS"/>
         <segue reference="hB2-vL-8vT"/>
-        <segue reference="FM4-kw-QCl"/>
+        <segue reference="oGN-65-H3a"/>
         <segue reference="z8k-GN-Mk2"/>
     </inferredMetricsTieBreakers>
 </document>
