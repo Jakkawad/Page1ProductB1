@@ -52,6 +52,7 @@ class SortProductViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //print(arrayFilterTitle[indexPath.row])
         let pageFilter = self.navigationController?.viewControllers[0] as! PageFilterProductViewController
+        //print(pageFilter)
         pageFilter.arrayFilterTitle = arrayFilterTitle[indexPath.row]
         //FilterOption(_filterSort: arrayFilterTitle[indexPath.row])
         
