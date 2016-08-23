@@ -539,9 +539,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="239.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hCs-9g-eMd">
-                                                    <rect key="frame" x="8" y="8" width="584" height="170"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ชุดเครื่องนอนผ้านวมผ้าปูที่นอน" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmA-tV-elI">
                                                     <rect key="frame" x="8" y="181" width="584" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -561,6 +558,10 @@
                                                         <constraint firstAttribute="width" constant="73" id="u3Y-ho-2ZS"/>
                                                     </constraints>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3lD-tL-e0w" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                                    <rect key="frame" x="8" y="8" width="584" height="160"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="1fG-Wp-RxK" secondAttribute="trailing" constant="320" id="0fu-DT-31O"/>
@@ -568,19 +569,19 @@
                                                 <constraint firstItem="wmA-tV-elI" firstAttribute="leading" secondItem="zwK-wL-Cdw" secondAttribute="leadingMargin" id="5o0-hp-mHP"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="X2x-mW-hJf" secondAttribute="bottom" constant="-8" id="8fP-BU-fnu"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="1fG-Wp-RxK" secondAttribute="bottom" constant="9" id="9Gb-9L-aX7"/>
+                                                <constraint firstItem="3lD-tL-e0w" firstAttribute="top" secondItem="zwK-wL-Cdw" secondAttribute="topMargin" id="AbD-FQ-fzk"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="X2x-mW-hJf" secondAttribute="trailing" constant="511" id="GlV-WD-p1Z"/>
                                                 <constraint firstItem="X2x-mW-hJf" firstAttribute="top" secondItem="wmA-tV-elI" secondAttribute="bottom" constant="14" id="JCF-3A-GAj"/>
                                                 <constraint firstItem="wmA-tV-elI" firstAttribute="trailing" secondItem="zwK-wL-Cdw" secondAttribute="trailingMargin" id="KnN-bg-3FG"/>
-                                                <constraint firstItem="hCs-9g-eMd" firstAttribute="leading" secondItem="zwK-wL-Cdw" secondAttribute="leadingMargin" id="Sdt-Hb-GSM"/>
-                                                <constraint firstItem="wmA-tV-elI" firstAttribute="top" secondItem="hCs-9g-eMd" secondAttribute="bottom" constant="3" id="iCE-l5-l7I"/>
-                                                <constraint firstItem="hCs-9g-eMd" firstAttribute="trailing" secondItem="zwK-wL-Cdw" secondAttribute="trailingMargin" id="iFa-Oc-lws"/>
+                                                <constraint firstItem="wmA-tV-elI" firstAttribute="top" secondItem="3lD-tL-e0w" secondAttribute="bottom" constant="13" id="Zsy-7I-EIm"/>
+                                                <constraint firstItem="3lD-tL-e0w" firstAttribute="leading" secondItem="zwK-wL-Cdw" secondAttribute="leadingMargin" id="hVX-nX-RW0"/>
                                                 <constraint firstItem="X2x-mW-hJf" firstAttribute="top" secondItem="wmA-tV-elI" secondAttribute="bottom" constant="14" id="wch-P8-n46"/>
-                                                <constraint firstItem="hCs-9g-eMd" firstAttribute="top" secondItem="zwK-wL-Cdw" secondAttribute="topMargin" id="y0q-ow-msw"/>
+                                                <constraint firstItem="3lD-tL-e0w" firstAttribute="trailing" secondItem="zwK-wL-Cdw" secondAttribute="trailingMargin" id="xsE-jU-lQq"/>
                                                 <constraint firstItem="X2x-mW-hJf" firstAttribute="leading" secondItem="zwK-wL-Cdw" secondAttribute="leadingMargin" id="yNa-vv-ywi"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="imageViewProduct" destination="hCs-9g-eMd" id="0f8-S1-4Xk"/>
+                                            <outlet property="slideshow" destination="3lD-tL-e0w" id="GhM-W9-nIC"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell1" rowHeight="224" id="XM3-Ec-gHA" customClass="PageDetailCell1TableViewCell" customModule="Page1ProductB1" customModuleProvider="target">
@@ -1974,7 +1975,9 @@
                             <constraint firstItem="MA9-PM-kq9" firstAttribute="leading" secondItem="2Ea-bd-GXh" secondAttribute="leadingMargin" constant="-20" id="SY3-J0-7Xk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="ตัวเลือกสินค้า" id="v8x-8V-HtO"/>
+                    <navigationItem key="navigationItem" title="ตัวเลือกสินค้า" id="v8x-8V-HtO">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="aTj-BS-U1F"/>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>

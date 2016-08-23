@@ -86,12 +86,14 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Page1ProductB1/Alamofire.framework"
   install_framework "Pods-Page1ProductB1/AlamofireImage.framework"
+  install_framework "Pods-Page1ProductB1/ImageSlideshow.framework"
   install_framework "Pods-Page1ProductB1/MapleBacon.framework"
   install_framework "Pods-Page1ProductB1/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Page1ProductB1/Alamofire.framework"
   install_framework "Pods-Page1ProductB1/AlamofireImage.framework"
+  install_framework "Pods-Page1ProductB1/ImageSlideshow.framework"
   install_framework "Pods-Page1ProductB1/MapleBacon.framework"
   install_framework "Pods-Page1ProductB1/SwiftyJSON.framework"
 fi

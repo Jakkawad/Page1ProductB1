@@ -9,6 +9,7 @@
 import UIKit
 import MapleBacon
 
+
 class PageDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
@@ -73,7 +74,7 @@ class PageDetailViewController: UIViewController, UITableViewDataSource, UITable
         
         if indexPath.section == 0 {
             let cell0 = tableView.dequeueReusableCellWithIdentifier("tableCell0") as! PageDetailCell0TableViewCell
-            cell0.imageViewProduct.setImageWithURL(NSURL(string: dummyImage("100x100"))!)
+            //cell0.imageViewProduct.setImageWithURL(NSURL(string: dummyImage("100x100"))!)
             return cell0
         } else if indexPath.section == 1 {
             let cell1 = tableView.dequeueReusableCellWithIdentifier("tableCell1") as! PageDetailCell1TableViewCell
