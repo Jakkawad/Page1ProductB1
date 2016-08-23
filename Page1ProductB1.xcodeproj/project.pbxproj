@@ -62,6 +62,7 @@
 		847451E41D509D86003B85C5 /* Page1Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847451E31D509D86003B85C5 /* Page1Category.swift */; };
 		848065D81D4B0CA400E9A3CD /* Page1Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848065D71D4B0CA400E9A3CD /* Page1Product.swift */; };
 		8483F58B1D5591F3008640FF /* PageFilterProductCell3TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8483F58A1D5591F3008640FF /* PageFilterProductCell3TableViewCell.swift */; };
+		848F37961D6C4F7400377B65 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 848F37941D6C4F7400377B65 /* CoreData.xcdatamodeld */; };
 		84DC37CC1D5C7FB800F9D99C /* PageProductAllCell1CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DC37CB1D5C7FB800F9D99C /* PageProductAllCell1CollectionViewCell.swift */; };
 		BC82D45D21A5691B7F5D1B62 /* Pods_Page1ProductB1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2C05E1D564D58DCEDF557B5 /* Pods_Page1ProductB1.framework */; };
 /* End PBXBuildFile section */
@@ -124,6 +125,7 @@
 		847451E31D509D86003B85C5 /* Page1Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page1Category.swift; sourceTree = "<group>"; };
 		848065D71D4B0CA400E9A3CD /* Page1Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page1Product.swift; sourceTree = "<group>"; };
 		8483F58A1D5591F3008640FF /* PageFilterProductCell3TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageFilterProductCell3TableViewCell.swift; sourceTree = "<group>"; };
+		848F37951D6C4F7400377B65 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		84DC37CB1D5C7FB800F9D99C /* PageProductAllCell1CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageProductAllCell1CollectionViewCell.swift; sourceTree = "<group>"; };
 		AB848B3ACF1C0622EB47C137 /* Pods-Page1ProductB1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Page1ProductB1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Page1ProductB1/Pods-Page1ProductB1.debug.xcconfig"; sourceTree = "<group>"; };
 		B5095C7BA4C653AB59B6DC02 /* Pods-Page1ProductB1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Page1ProductB1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Page1ProductB1/Pods-Page1ProductB1.release.xcconfig"; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				847451E31D509D86003B85C5 /* Page1Category.swift */,
 				845A29B11D42178F00E0A355 /* ProductsGridFlowLayout.swift */,
 				845A29B31D42179A00E0A355 /* ProductsListFlowLayout.swift */,
+				848F37971D6C4F8100377B65 /* CoreData */,
 				846EC6B91D3F2A8A00762E83 /* Icon */,
 			);
 			path = Page1ProductB1;
@@ -398,6 +401,14 @@
 				8483F58A1D5591F3008640FF /* PageFilterProductCell3TableViewCell.swift */,
 			);
 			name = PageFilter;
+			sourceTree = "<group>";
+		};
+		848F37971D6C4F8100377B65 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				848F37941D6C4F7400377B65 /* CoreData.xcdatamodeld */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 		C21DFB2A58EA2999AF1B7C51 /* Pods */ = {
@@ -578,6 +589,7 @@
 				847451E41D509D86003B85C5 /* Page1Category.swift in Sources */,
 				846ABC241D5C41B100D57825 /* GeneralClass.swift in Sources */,
 				846EC6C71D3F306000762E83 /* PageReviewCell0TableViewCell.swift in Sources */,
+				848F37961D6C4F7400377B65 /* CoreData.xcdatamodeld in Sources */,
 				845A29821D41C9AD00E0A355 /* SortProductViewController.swift in Sources */,
 				848065D81D4B0CA400E9A3CD /* Page1Product.swift in Sources */,
 				846EC6D91D3F7CEE00762E83 /* PageProductAllCell0CollectionViewCell.swift in Sources */,
@@ -753,6 +765,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		848F37941D6C4F7400377B65 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				848F37951D6C4F7400377B65 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 848F37951D6C4F7400377B65 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 846758EA1D3C853900EBEE50 /* Project object */;
 }

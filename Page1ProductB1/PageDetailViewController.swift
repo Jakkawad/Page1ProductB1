@@ -12,8 +12,14 @@ import MapleBacon
 
 class PageDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    //var delegate:PageDetailCell0Protocol!
+    //var delegate:PageDetailCell0TableViewCellDelegate?
     
-
+    /*
+    @IBAction func click() {
+        self.delegate.click()
+    }
+    */
     @IBOutlet weak var tableView:UITableView!
     
     @IBAction func showActionSheet(sender: AnyObject) {

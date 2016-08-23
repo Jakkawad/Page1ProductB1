@@ -11,6 +11,8 @@ import UIKit
 class PageOptionViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView:UITableView!
+    
+    
     /*
     @IBAction func unwindPageOption(segue: UIStoryboardSegue) {
         if let pageReuse = segue.sourceViewController as? PageOptionReuseViewController {
@@ -58,10 +60,32 @@ class PageOptionViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    @IBAction func btnDone() {
+        delay(0.5) {
+            self.tableView.reloadData()
+            
+            delay(0.2) {
+                
+                print("ColorArray = \(self.colorSelected)")
+                print("SizeArray = \(self.sizeSelected)")
+                print("Price = \(self.price)")
+                //self.navigationController?.tabBarItem.badgeValue = "3"
+                self.navigationController?.popViewControllerAnimated(true)
+                
+            }
+        }
+
+        //navigationController?.popViewControllerAnimated(true)
+    }
+    
     var colorArray = []
     var sizeArray = []
     var colorSelected:String!
     var sizeSelected:String!
+    var price:String!
+    var productPrice:Int = 900
+    
+    var badgeCount = 0
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -92,10 +116,12 @@ class PageOptionViewController: UIViewController, UITableViewDataSource, UITable
             }
             return cell2!
         } else if indexPath.row == 3 {
-            let cell3 = tableView.dequeueReusableCellWithIdentifier("tableCell3")
-            return cell3!
+            let cell3 = tableView.dequeueReusableCellWithIdentifier("tableCell3") as! PageOptionCell3TableViewCell
+            price = cell3.priceTotal
+            return cell3
         } else {
             let cell4 = tableView.dequeueReusableCellWithIdentifier("tableCell4")
+            cell4?.detailTextLabel?.text = String(productPrice)
             return cell4!
         }
     }
@@ -115,7 +141,7 @@ class PageOptionViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        //UIApplication.sharedApplication().applicationIconBadgeNumber = 5
         
         // Do any additional setup after loading the view.
     }

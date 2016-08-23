@@ -12,6 +12,8 @@ class PageOptionCell3TableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var txtTotal:UITextField!
     
+    var priceTotal:String!
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         print("TextField should return method called")
         textField.resignFirstResponder()
@@ -21,6 +23,7 @@ class PageOptionCell3TableViewCell: UITableViewCell, UITextFieldDelegate {
     func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         print("TextField should and editing method called")
         print(textField)
+        priceTotal = txtTotal.text
         return true
     }
 
